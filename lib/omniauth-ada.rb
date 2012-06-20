@@ -6,12 +6,12 @@ module Omniauth
   module Strategies
     class Ada < OmniAuth::Strategies::OAuth2
 
-      opiton :name, 'ada'
+      option :name, 'ada'
 
       option :client_options, {
-        site: Rails.configuration.oauth_url,
-        authorize_url: "#{Rails.configuration.oauth_url}/auth/ada/authorize",
-        access_token_url: "#{Rails.configuration.oauth_url}/auth/ada/access_token"
+        site: ENV['oauth_url'],
+        authorize_url: "#{ENV['oauth_url']}/auth/ada/authorize",
+        access_token_url: "#{ENV['oauth_url']}/auth/ada/access_token"
       }
 
       uid { raw_info['id'] }

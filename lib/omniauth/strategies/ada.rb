@@ -3,15 +3,15 @@ require 'omniauth-oauth2'
 
 module OmniAuth
   module Strategies
-    class Ada
-      include OmniAuth::Strategy
+    class Ada < OmniAuth::Strategies::OAuth2
+      puts ENV['oauth_url']
 
       option :name, 'ada'
 
       option :client_options, {
-        site: ENV['oauth_url'],
-        authorize_url: "#{ENV['oauth_url']}/auth/ada/authorize",
-        access_token_url: "#{ENV['oauth_url']}/auth/ada/access_token"
+        site: "http://localhost:3001",
+        authorize_url: "http://localhost:3001/auth/ada/authorize",
+        access_token_url: "http://localhost:3001/auth/ada/access_token"
       }
 
       uid { raw_info['id'] }

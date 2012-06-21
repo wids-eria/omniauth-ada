@@ -14,7 +14,7 @@ module OmniAuth
         access_token_url: "http://localhost:3001/auth/ada/access_token"
       }
 
-      uid { raw_info['id'] }
+      uid { raw_info['uid'] }
 
       info do
         {

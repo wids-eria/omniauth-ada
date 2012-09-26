@@ -9,9 +9,9 @@ module OmniAuth
       option :name, 'ada'
 
       option :client_options, {
-        site: "http://localhost:3001",
-        authorize_url: "http://localhost:3001/auth/ada/authorize",
-        access_token_url: "http://localhost:3001/auth/ada/access_token"
+        site: "http://ada.production.eriainteractive.com",
+        authorize_url: "http://ada.production.eriainteractive.com/auth/ada/authorize",
+        access_token_url: "http://ada.production.eriainteractive.com/auth/ada/access_token"
       }
 
       uid { raw_info['uid'] }

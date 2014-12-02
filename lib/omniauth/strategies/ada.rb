@@ -5,12 +5,7 @@ module OmniAuth
   module Strategies
     class Ada < OmniAuth::Strategies::OAuth2
 
-      unless ENV['ADA_URL']
-        ENV['ADA_URL'] = "http://adage.gameslearningsociety.org"
-      end
-
       option :name, 'ada'
-
       option :client_options, {
         site: ENV['ADA_URL'],
         authorize_url: "#{ENV['ADA_URL']}/auth/ada/authorize",

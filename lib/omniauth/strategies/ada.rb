@@ -4,14 +4,17 @@ require 'omniauth-oauth2'
 module OmniAuth
   module Strategies
     class Ada < OmniAuth::Strategies::OAuth2
-      puts ENV['oauth_url']
+
+      unless ENV['ADA_URL']
+        ENV['ADA_URL'] = "http://adage.gameslearningsociety.org"
+      end
 
       option :name, 'ada'
 
       option :client_options, {
-        site: "http://adage.gameslearningsociety.org",
-        authorize_url: "http://adage.gameslearningsociety.org/auth/ada/authorize",
-        access_token_url: "http://adage.gameslearningsociety.org/auth/ada/access_token"
+        site: ENV['ADA_URL'],
+        authorize_url: "#{ENV['ADA_URL']}/auth/ada/authorize",
+        access_token_url: "#{ENV['ADA_URL']}/auth/ada/access_token"
       }
 
       uid { raw_info['uid'] }
